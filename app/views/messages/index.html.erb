@@ -1,0 +1,13 @@
+<h2>message一覧</h2>
+
+<% @messages.each do |message| %>
+
+  <div>
+    <!--N+1問題を回避するために、includeを使う方法を書く。(https://techracho.bpsinc.jp/hachi8833/2021_06_21/108935)-->
+    <!--例: coming soon-->
+    <% message.images.each do |image| %>
+      <%= image_tag image, alt: "Message Image" %>
+    <% end %>
+  </div>
+
+<% end %>

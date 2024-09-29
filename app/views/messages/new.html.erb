@@ -1,0 +1,12 @@
+<h2>Message 作成</h2>
+
+<%= form_with model: @message do |form| %>
+  <%= render 'layouts/error', obj: @message %>
+  
+  <div>
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
+
+  <%= form.submit %>
+<% end %>

@@ -1,0 +1,19 @@
+<h2>Message 編集</h2>
+
+<%= form_with model: @message do |form| %>
+  <%= render 'layouts/error', obj: @message %>
+  
+  <% @message.images.each do |image| %>
+    <div>
+      <!--javascript使って、動的に削除もできるようにする-->
+      <%= form.hidden_field :images, multiple: true, value: image.signed_id %>
+    </div>
+  <% end %>
+  
+  <div>
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true %>
+  </div>
+  
+  <%= form.submit %>
+<% end %>
